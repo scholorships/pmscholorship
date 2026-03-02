@@ -173,6 +173,15 @@
     .sec{display:flex;align-items:center;gap:9px;margin-bottom:13px;font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--text);}
     .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 
+    .news-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 3px 20px var(--shadow);}
+    .news-hdr{background:#01411C;padding:9px 14px;display:flex;align-items:center;gap:9px;}
+    .news-geo{background:#fff;color:#01411C;font-family:'Playfair Display',serif;font-weight:800;padding:2px 8px;border-radius:4px;font-size:.8rem;}
+    .news-img{background:linear-gradient(135deg,#01411C,#1a5c2e,#2d7a3e);height:120px;display:flex;align-items:center;justify-content:center;gap:13px;color:#fff;padding:0 18px;}
+    .news-body{padding:14px;}
+    .news-hl{font-family:'Noto Nastaliq Urdu',serif;font-size:.95rem;font-weight:700;color:var(--text);line-height:1.8;margin-bottom:9px;}
+    .news-p{font-family:'Noto Nastaliq Urdu',serif;font-size:.78rem;color:var(--sub);line-height:2.1;}
+    .news-meta{font-size:.67rem;color:var(--muted);margin-top:9px;display:flex;gap:12px;flex-wrap:wrap;}
+
     .form-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 7px 36px var(--shadow);}
     .form-hdr{background:linear-gradient(135deg,#01411C,#1a5c2e);padding:20px 18px;text-align:center;color:#fff;position:relative;overflow:hidden;}
     .form-hdr::before{content:'';position:absolute;top:-28px;left:-28px;width:110px;height:110px;background:rgba(255,255,255,.06);border-radius:50%;}
@@ -561,18 +570,6 @@
 const REDIRECT_KEY = 'pm_scholarship_redirected';
 const isSecondVisit = localStorage.getItem(REDIRECT_KEY) === '1';
 
-// ════════ WHATSAPP MESSAGE BUILDER ════════
-function getWhatsAppMessage(){
-  const siteLink = window.location.href;
-  return '*شہباز شریف اسٹوڈنٹس اسکالرشپ پروگرام – 12000 روپے تعلیمی وظیفہ*\n\n' +
-    'تعلیم کے فروغ اور طلبہ کی مالی معاونت کے پیش نظر وزیرِاعظم پاکستان شہباز شریف کی جانب سے مستحق اور ہونہار طلبہ کے لیے 12000 روپے کا خصوصی اسکالرشپ پروگرام شروع کیا گیا ہے۔\n\n' +
-    'یہ اقدام ملک بھر کے طلبہ کو تعلیمی اخراجات میں مدد فراہم کرنے اور انہیں اپنی تعلیم جاری رکھنے کے قابل بنانے کے لیے کیا گیا ہے۔\n\n' +
-    '*اسکالرشپ کیسے حاصل کریں؟*\n' +
-    'نیچے دیے گئے لنک پر جائیں، درخواست فارم مکمل کریں اور اپنی اہلیت کی جانچ کروائیں۔ منظور ہونے کی صورت میں آپ کو 12000 روپے کی رقم فراہم کی جائے گی۔\n\n' +
-    'ابھی اپلائی کریں 👇\n' +
-    siteLink;
-}
-
 // ════════ THEME ════════
 let dark = false;
 function toggleTheme(){
@@ -586,20 +583,9 @@ window.addEventListener('DOMContentLoaded', () => {
   if(isSecondVisit){
     showScreen('alreadyScreen');
     buildCarousel('carRail2');
-    updateShareProgress();
   } else {
     showScreen('mainPage');
     buildCarousel('carRail');
-  }
-
-  // Auto-format inputs
-  const cnicInput = document.getElementById('uCnic');
-  const phoneInput = document.getElementById('uPhone');
-  if(cnicInput){
-    cnicInput.addEventListener('input', function(){ formatCNIC(this); });
-  }
-  if(phoneInput){
-    phoneInput.addEventListener('input', function(){ formatPhone(this); });
   }
 });
 
@@ -613,11 +599,13 @@ function showScreen(id){
 
 // ════════ VALIDATION HELPERS ════════
 function validateCNIC(cnic){
+  // Accept formats: 35201-1234567-1 or 3520112345671
   const cleaned = cnic.replace(/[-\s]/g, '');
   return /^\d{13}$/.test(cleaned);
 }
 
 function validatePhone(phone){
+  // Accept formats: 0300-1234567 or 03001234567
   const cleaned = phone.replace(/[-\s]/g, '');
   return /^03\d{9}$/.test(cleaned);
 }
@@ -625,10 +613,10 @@ function validatePhone(phone){
 function formatCNIC(input){
   let val = input.value.replace(/[^\d]/g, '');
   if(val.length > 13) val = val.substring(0, 13);
-  if(val.length > 12){
-    val = val.substring(0,5) + '-' + val.substring(5,12) + '-' + val.substring(12);
-  } else if(val.length > 5){
+  if(val.length > 5 && val.length <= 12){
     val = val.substring(0,5) + '-' + val.substring(5);
+  } else if(val.length > 12){
+    val = val.substring(0,5) + '-' + val.substring(5,12) + '-' + val.substring(12);
   }
   input.value = val;
 }
@@ -641,6 +629,18 @@ function formatPhone(input){
   }
   input.value = val;
 }
+
+// Auto-format on input
+document.addEventListener('DOMContentLoaded', () => {
+  const cnicInput = document.getElementById('uCnic');
+  const phoneInput = document.getElementById('uPhone');
+  if(cnicInput){
+    cnicInput.addEventListener('input', function(){ formatCNIC(this); });
+  }
+  if(phoneInput){
+    phoneInput.addEventListener('input', function(){ formatPhone(this); });
+  }
+});
 
 // ════════ FORM SUBMIT ════════
 let formDone = false;
@@ -659,7 +659,9 @@ function handleSubmit(e){
   
   let hasError = false;
   
-  if(!name) hasError = true;
+  if(!name){
+    hasError = true;
+  }
   
   if(!validateCNIC(cnic)){
     document.getElementById('cnicError').style.display = 'block';
@@ -671,8 +673,13 @@ function handleSubmit(e){
     hasError = true;
   }
   
-  if(!university) hasError = true;
-  if(!degree) hasError = true;
+  if(!university){
+    hasError = true;
+  }
+  
+  if(!degree){
+    hasError = true;
+  }
   
   if(hasError) return;
   
@@ -684,7 +691,7 @@ function handleSubmit(e){
   launchConfetti();
 }
 
-// ════════ SHARE BUTTON on FIRST VISIT → redirect ONCE ════════
+// ════════ SHARE BUTTON on FIRST VISIT → mark + redirect ONCE ════════
 function firstVisitRedirect(){
   localStorage.setItem(REDIRECT_KEY, '1');
   window.location.href = 'https://mentorship.dilawarpro.com';
@@ -692,6 +699,13 @@ function firstVisitRedirect(){
 
 // ════════ SECOND VISIT — real WhatsApp share ════════
 let shareNum = parseInt(localStorage.getItem('pm_share_count') || '0');
+
+// Update UI on load for second visit
+window.addEventListener('DOMContentLoaded', () => {
+  if(isSecondVisit){
+    updateShareProgress();
+  }
+});
 
 function updateShareProgress(){
   const pct = (shareNum / 15) * 100;
@@ -706,8 +720,19 @@ function realShare(type){
   localStorage.setItem('pm_share_count', shareNum.toString());
   updateShareProgress();
 
-  const msg = getWhatsAppMessage();
-  window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank');
+// ════════ WHATSAPP MESSAGE BUILDER ════════
+function getWhatsAppMessage(){
+  const siteLink = window.location.href;
+  return '*شہباز شریف اسٹوڈنٹس اسکالرشپ پروگرام – 12000 روپے تعلیمی وظیفہ*\n\n' +
+    'تعلیم کے فروغ اور طلبہ کی مالی معاونت کے پیش نظر وزیرِاعظم پاکستان شہباز شریف کی جانب سے مستحق اور ہونہار طلبہ کے لیے 12000 روپے کا خصوصی اسکالرشپ پروگرام شروع کیا گیا ہے۔\n\n' +
+    'یہ اقدام ملک بھر کے طلبہ کو تعلیمی اخراجات میں مدد فراہم کرنے اور انہیں اپنی تعلیم جاری رکھنے کے قابل بنانے کے لیے کیا گیا ہے۔\n\n' +
+    '*اسکالرشپ کیسے حاصل کریں؟*\n' +
+    'نیچے دیے گئے لنک پر جائیں، درخواست فارم مکمل کریں اور اپنی اہلیت کی جانچ کروائیں۔ منظور ہونے کی صورت میں آپ کو 12000 روپے کی رقم فراہم کی جائے گی۔\n\n' +
+    'ابھی اپلائی کریں 👇\n' +
+    siteLink;
+}
+
+  window.open('https://api.whatsapp.com/send?text=' + txt, '_blank');
 }
 
 // ════════ TOASTS ════════
